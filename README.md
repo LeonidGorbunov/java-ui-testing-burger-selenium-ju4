@@ -1,3 +1,5 @@
+[![UI Tests (Headless Chrome) & Allure Report](https://github.com/LeonidGorbunov/java-ui-testing-burger-selenium-ju4/actions/workflows/tests.yml/badge.svg)](https://github.com/LeonidGorbunov/java-ui-testing-burger-selenium-ju4/actions/workflows/tests.yml)
+[![Allure Report](https://img.shields.io/badge/Allure%20Report-Live-brightgreen)](https://leonidgorbunov.github.io/java-ui-testing-burger-selenium-ju4/)
 # Java UI Testing Stellar Burgers Project (Selenium)
 
 **Контекст и цели проекта**: проектирование стабильной и легко поддерживаемой архитектуры фреймворка автоматизации пользовательских сценариев (UI Automation) на базе паттерна Page Object Model (POM) для верификации критических путей фронтенда космической бургерной и кроссбраузерной проверки рендеринга интерфейса.
@@ -33,3 +35,8 @@
 Успешное выполнение теста на переключение табов и валидацию скроллинга раздела Конструктор в Яндекс.Браузере. Скриншот демонстрирует прохождение теста благодаря инжекции JavaScript-алгоритма `isContainerScrolledToElement` на базе вычисления координат `getBoundingClientRect()`.
 * **Анализ инфраструктурной нестабильности стенда (Root Cause Analysis)**: В ходе headless-прогона в окружении Yandex Browser были зафиксированы два тест-кейса в статусе `Broken` по причине `org.openqa.selenium.TimeoutException: timeout: Timed out receiving message from renderer`. Данный сбой носит исключительно инфраструктурный характер (Flaky Environment) и вызван задержками рендеринга на стороне слабого тестового сервера.
 ![Allure UI Yandex Scroll](allure-ui-yandex-scroll.png)
+
+### 📊 Живой отчёт Allure и запуск в CI/CD (GitHub Actions)
+
+* **Интерактивный отчёт последнего прогона (Headless Chrome):** [Открыть Allure Report на GitHub Pages](https://leonidgorbunov.github.io/java-ui-testing-burger-selenium-ju4/)
+* **Особенности запуска в облаке:** в репозиторий интегрирован пайплайн [GitHub Actions](.github/workflows/tests.yml), который запускает тесты на Linux в режиме `Headless Chrome` (`-Dheadless=true -Dbrowser=chrome`), сохраняет историю прогонов и публикует отчёт на GitHub Pages. Полный кроссбраузерный прогон с **Яндекс.Браузером** поддерживается при локальном запуске на Windows.
